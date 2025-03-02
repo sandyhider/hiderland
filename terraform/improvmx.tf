@@ -1,17 +1,11 @@
-provider "http" {}
-
-resource "http_request" "create_forwarding" {
-  url    = "https://api.improvmx.com/v3/domains/yourdomain.com/aliases"
-  method = "POST"
-
-  request_headers = {
-    "Authorization" = "Basic ${base64encode("api:<YOUR_IMPROVMX_API_KEY>")}"
-    "Content-Type"  = "application/json"
-  }
-
-  request_body = jsonencode({
-    alias  = "contact"
-    forward = ["your-email@example.com"]
-  })
+data "improvmx_domain_check" "hiderland_com" {
+  domain = "hiderland.com"
 }
+
+resource "improvmx_email_forward" "sandy" {
+  domain            = "hiderland.com"
+  alias_name        = "sandy"
+  destination_email = "hiderrt1@yahoo.com"
+}
+
 
