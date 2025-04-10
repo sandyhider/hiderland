@@ -26,5 +26,5 @@ provider "aws" {
 }
 
 provider "improvmx" {
-  token = "sk_a90c617fa91c47e9b8e0709d5ace95c6"
+  token = "sk_######################"
 }
